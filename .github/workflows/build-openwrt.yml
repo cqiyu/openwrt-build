@@ -24,6 +24,10 @@ on:
         description: '发布固件'
         required: false
         default: 'release-actions'
+      # target:
+        # description: '固件载体'
+        # required: true
+        # default: 'Lienol_newifi_d2'        
 
 
 #定时触发开始编译(开启定时编译请先确认SSH处在关闭状态,要不然SSH没人管,会卡SSH编译失败)
@@ -42,7 +46,8 @@ env:
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TZ: Asia/Shanghai
-  GITHUB_RELEASE: https://github.com/281677160/build-openwrt/releases
+  #GITHUB_RELEASE: https://github.com/281677160/build-openwrt/releases
+  GITHUB_RELEASE: https://github.com/cqiyu/openwrt-build/releases
 
 jobs: 
   build:
@@ -56,7 +61,7 @@ jobs:
         target: [Lede_x86_64]
 
      # [Lede_nanopi_r2s,Lede_newifi_d2,Lede_phicomm_k2p,Lede_phicomm_n1,Lede_redmi_ac2100,Lede_wndr3800,Lede_wr703n_v1,Lede_x86_64,Lede_xiaomi_r3pro,Lede_xiaoyu_c5]
-     # [Lienol_phicomm_k2p,Lienol_phicomm_k3,Lienol_x86_64]
+     # [Lienol_newifi_d2,Lienol_phicomm_k2p,Lienol_phicomm_k3,Lienol_x86_64]
      # [Project_nanopi_r2s,Project_nanopi_r4s,Project_newifi_d2,Project_phicomm_k3,Project_phicomm_n1,Project_x86_64,Project_xiaomi_ac2100,Project_xiaomi_mir3g,Project_xiaoyu_c5]
      # [openwrt] 
      # 选择编译[openwrt]纯源码不经任何修改的，上面那些机型是经过我增加插件的，在对应文件夹里，可修改成你喜欢的任意源码链接，其他机型文件请勿修改源码链接
